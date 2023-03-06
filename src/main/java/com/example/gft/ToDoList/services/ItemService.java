@@ -9,4 +9,6 @@ public interface ItemService {
     TodoItem createItem(TodoItem item);
 
     List<TodoItem> findAllItems();
+
+    List<TodoItem> findAllItemsOfUser(String username);
 }

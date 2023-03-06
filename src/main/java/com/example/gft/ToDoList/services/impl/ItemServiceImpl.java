@@ -20,4 +20,9 @@ public class ItemServiceImpl implements ItemService {
     public List<TodoItem> findAllItems() {
         return itemRepo.findAll();
     }
+
+    @Override
+    public List<TodoItem> findAllItemsOfUser(String username) {
+        return itemRepo.findAllByUserName(username);
+    }
 }
