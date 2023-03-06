@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
     public TodoUser createUser(TodoUser user) {
         return userRepo.save(user);
     }
+
+    @Override
+    public boolean checkIfUserExists(String username) {
+        List<TodoUser> list =  userRepo.findByUserName(username);
+        return list.size() > 0;
+    }
 }

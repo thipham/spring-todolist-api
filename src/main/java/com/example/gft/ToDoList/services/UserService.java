@@ -8,4 +8,6 @@ public interface UserService {
     public List<TodoUser> findAllUsers();
 
     TodoUser createUser(TodoUser user);
+
+    boolean checkIfUserExists(String username);
 }

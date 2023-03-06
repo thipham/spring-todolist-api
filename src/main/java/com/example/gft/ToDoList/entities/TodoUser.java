@@ -8,7 +8,7 @@ import java.util.List;
 public class TodoUser {
     @Id
     private long id;
-    private String user_name;
+    private String userName;
 
     public long getId() {
         return id;
@@ -18,11 +18,11 @@ public class TodoUser {
         this.id = id;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

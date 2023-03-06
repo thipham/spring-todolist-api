@@ -28,9 +28,14 @@ public class UserServiceTest {
     void test_createUser() {
         List<TodoUser> oldList = userService.findAllUsers();
         TodoUser user = new TodoUser();
-        user.setUser_name("Thi");
+        user.setUserName("Thi");
         userService.createUser(user);
         List<TodoUser> newList = userService.findAllUsers();
         assertTrue(oldList.size() - newList.size() == 1);
+    }
+    @Test
+    void test_checkIfUserExists() {
+        String username = "Thi";
+        assertTrue(userService.checkIfUserExists(username));
     }
 }
