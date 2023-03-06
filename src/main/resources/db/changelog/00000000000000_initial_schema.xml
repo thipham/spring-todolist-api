@@ -9,14 +9,13 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="title" type="varchar(150)"/>
-            <column name="description" type="varchar(1024)"/>
-
-            <column name="createdDate" type="varchar(50)"/>
-            <column name="modifiedDate" type="varchar(50)"/>
+            <column name="description" type="varchar(1000)"/>
+            <column name="created_date" type="varchar(50)"/>
+            <column name="modified_date" type="varchar(50)"/>
             <column name="deadline" type="varchar(50)"/>
-            <column name="userId" type="bigint"/>
+            <column name="user_id" type="bigint"/>
 
-            <column name="statusId" type="bigint"/>
+            <column name="status_id" type="bigint"/>
         </createTable>
 
         <createTable tableName="todo_status">
@@ -35,13 +34,13 @@
             </column>
         </createTable>
 
-        <addForeignKeyConstraint baseColumnNames="statusId"
+        <addForeignKeyConstraint baseColumnNames="status_id"
                                  baseTableName="todo_item"
                                  constraintName="fk_status_name"
                                  referencedColumnNames="id"
                                  referencedTableName="todo_status"/>
 
-        <addForeignKeyConstraint baseColumnNames="userId"
+        <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="todo_item"
                                  constraintName="fk_user_name"
                                  referencedColumnNames="id"

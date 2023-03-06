@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name = "todo_user")
 public class TodoUser {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String userName;
 

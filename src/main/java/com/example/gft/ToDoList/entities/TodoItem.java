@@ -2,18 +2,18 @@ package com.example.gft.ToDoList.entities;
 
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "todo_item")
 public class TodoItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String description;
-    private Date createdDate;
-    private Date modifiedDate;
-    private Date deadline;
+    private String createdDate;
+    private String modifiedDate;
+    private String deadline;
     private long userId;
     private long statusId;
 
@@ -41,27 +41,27 @@ public class TodoItem {
         this.description = description;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
-    public Date getModifiedDate() {
+    public String getModifiedDate() {
         return modifiedDate;
     }
 
-    public void setModifiedDate(Date modifiedDate) {
+    public void setModifiedDate(String modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
 
-    public Date getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
 

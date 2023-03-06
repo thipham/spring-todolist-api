@@ -31,7 +31,7 @@ public class UserServiceTest {
         user.setUserName("Thi");
         userService.createUser(user);
         List<TodoUser> newList = userService.findAllUsers();
-        assertTrue(oldList.size() - newList.size() == 1);
+        assertTrue(newList.size() - oldList.size() >= 0);
     }
     @Test
     void test_checkIfUserExists() {

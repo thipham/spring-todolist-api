@@ -5,5 +5,8 @@ import com.example.gft.ToDoList.entities.TodoItem;
 import java.util.List;
 
 public interface ItemService {
-    public List<TodoItem> findAll();
+
+    TodoItem createItem(TodoItem item);
+
+    List<TodoItem> findAllItems();
 }
