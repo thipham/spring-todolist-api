@@ -5,4 +5,7 @@ public class ToDoListConstants {
 
     //User Controller URLs
     public static final String USER_CONTROLLER_CREATE_USER = "createUser";
+    //Item Controller URLs
+    public static final String ITEM_CONTROLLER_CREATE_ITEM = "createItem";
+    public static final String ITEM_CONTROLLER_GET_LIST_ITEM_OF_USER = "getListItemOfUser";
 }

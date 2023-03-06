@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "09515523-24f8-4fb6-9512-1d6b4b121901",
+		"name": "Spring To Do List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create To Do List",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var moment = require('moment');",
+							"",
+							"pm.environment.set('currentdate', moment().format((\"YYYY-MM-DD HH:MM:SS\")));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Demo\",\n    \"description\": \"Demo for task 1\",\n    \"createdDate\": \"{{currentdate}}\",\n    \"modifiedDate\": \"{{currentdate}}\",\n    \"deadline\": \"2023-08-23 03:00:00\",\n    \"userId\": \"2\",\n    \"statusId\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/todolist/createItem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"todolist",
+						"createItem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ceate User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/todolist/createUser?username=Sky",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"todolist",
+						"createUser"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Sky"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get To Do List of User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/todolist/getListItemOfUser?username=Thi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"todolist",
+						"getListItemOfUser"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Thi"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
