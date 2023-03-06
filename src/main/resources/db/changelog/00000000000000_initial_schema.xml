@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="00000000000001" author="phthi">
+        <createTable tableName="todo_item">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(150)"/>
+            <column name="description" type="varchar(1024)"/>
+
+            <column name="createdDate" type="varchar(50)"/>
+            <column name="modifiedDate" type="varchar(50)"/>
+            <column name="deadline" type="varchar(50)"/>
+            <column name="userId" type="bigint"/>
+
+            <column name="statusId" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="todo_status">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="status" type="varchar(50)"/>
+        </createTable>
+
+        <createTable tableName="todo_user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="statusId"
+                                 baseTableName="todo_item"
+                                 constraintName="fk_status_name"
+                                 referencedColumnNames="id"
+                                 referencedTableName="todo_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="userId"
+                                 baseTableName="todo_item"
+                                 constraintName="fk_user_name"
+                                 referencedColumnNames="id"
+                                 referencedTableName="todo_user"/>
+
+        <loadData
+                file="db/data/status.csv"
+                separator=";"
+                tableName="todo_status"
+                usePreparedStatements="false">
+            <column name="id" type="numeric"/>
+            <column name="status" type="string"/>
+        </loadData>
+
+    </changeSet>
+
+</databaseChangeLog>
