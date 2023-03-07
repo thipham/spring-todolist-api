@@ -9,6 +9,9 @@ spring.datasource.username=
 spring.datasource.password=
 - Run the application using your preferred IDE (IntelliJ, STS)
 
+**TESTING**
+I prepared some example in Postman (if you also use it). You could download file : Spring To Do List.postman_collection.json and import to your Postman collection
+
 
 ## **TODO**
 - Add authentication and validation
